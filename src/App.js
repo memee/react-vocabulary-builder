@@ -1,6 +1,9 @@
 import React from "react";
+import { Route } from "react-router-dom";
 import logo from "./logo.svg";
 import "./App.css";
+
+import VocabularyList from "./VocabularyList";
 
 function App() {
   return (
@@ -19,6 +22,9 @@ function App() {
           Learn React
         </a>
       </header>
+      <main>
+        <Route exact path="/" component={VocabularyList} />
+      </main>
     </div>
   );
 }
