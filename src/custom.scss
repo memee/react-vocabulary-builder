@@ -1,0 +1,19 @@
+$black: #2d132c;
+
+$theme-colors: (
+  "primary": #2d132c,
+  "success": #801336,
+  "danger": #c72c41,
+);
+
+$body-bg: $black;
+$text-color: white;
+$body-color: white;
+
+// https://colorhunt.co/palettes/dark:w
+
+// 2d132c
+// 801336
+// c72c41
+// ee4540
+@import "~bootstrap/scss/bootstrap.scss";
