@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function VocabularyAddEntry(props) {
+  const [word, setWord] = useState("");
+  const [translation, setTranslation] = useState("");
+
   const _submit = (evt) => {
     evt.preventDefault();
-    console.log(evt);
+    props.onAddEntry(word, translation);
   };
   return (
     <form onSubmit={_submit}>
@@ -14,6 +17,7 @@ export default function VocabularyAddEntry(props) {
           className="form-control"
           placeholder="Word"
           required="true"
+          onChange={(e) => setWord(e.target.value)}
         />
         <input
           type="text"
@@ -21,6 +25,7 @@ export default function VocabularyAddEntry(props) {
           className="form-control"
           placeholder="Translation"
           required="true"
+          onChange={(e) => setTranslation(e.target.value)}
         />
         <div className="input-group-append">
           <button
