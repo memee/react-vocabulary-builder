@@ -1,6 +1,6 @@
 {
   "name": "react-vocabulary-builder",
-  "homepage": "/react-vocabulary-builder",
+  "homepage": "https://memee.github.io/react-vocabulary-builder",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^7.1.2",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
+    "gh-pages": "^2.2.0",
     "husky": "^4.2.5",
     "jest-enzyme": "^7.1.2",
     "lint-staged": "^10.2.4",
@@ -30,9 +31,10 @@
     ]
   },
   "scripts": {
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -b master -d build -e docs",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "postbuild": "rm -rf docs && mv build docs",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
