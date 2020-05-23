@@ -2,7 +2,7 @@ import React from "react";
 import { Route } from "react-router-dom";
 import "./App.css";
 
-import VocabularyList from "./VocabularyList";
+import VocabularyList from "./vocabulary-list/VocabularyList";
 
 function App() {
   return (
