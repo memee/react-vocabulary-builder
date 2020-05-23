@@ -16,7 +16,7 @@ export default function VocabularyAddEntry(props) {
           aria-label="Word"
           className="form-control"
           placeholder="Word"
-          required="true"
+          required={true}
           onChange={(e) => setWord(e.target.value)}
         />
         <input
@@ -24,7 +24,7 @@ export default function VocabularyAddEntry(props) {
           aria-label="Translation"
           className="form-control"
           placeholder="Translation"
-          required="true"
+          required={true}
           onChange={(e) => setTranslation(e.target.value)}
         />
         <div className="input-group-append">
