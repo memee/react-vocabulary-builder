@@ -5,9 +5,35 @@ import {
   useVocabularyStore,
 } from "../persistence/persistence";
 
+import VocabularyTestAnswer from "./VocabularyTestAnswer";
+
 export default function VocabularyTest() {
   const { id } = useParams();
   const { list } = useVocabularyStore();
-  const { taken, available } = useVocabularyTestStore(id, list);
-  return <div></div>;
+  const {
+    answer,
+    taken,
+    available,
+    nextEntry,
+    isEmpty,
+  } = useVocabularyTestStore(id, list);
+
+  const onSubmitAnswer = (theAnswer) => {
+    answer(theAnswer);
+  };
+  const goBackButton = <a href="#/" className="btn btn-primary">go back</a>
+
+  if (isEmpty) {
+    return <div>is empty {goBackButton}</div>;
+
+  } else if (available.length) {
+    return <div>
+      <VocabularyTestAnswer entry={nextEntry} onSubmit={onSubmitAnswer} />
+      {goBackButton}
+    </div>;
+
+  } else {
+    return <div>Test Finished {goBackButton}</div>
+
+  }
 }

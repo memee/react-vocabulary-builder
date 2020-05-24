@@ -46,7 +46,7 @@ export default function VocabularyAddEntry(props) {
         />
         <div className="input-group-append">
           <button
-            className="btn btn-outline-secondary"
+            className="btn btn-outline-primary"
             type="submit"
             id="buttond-addon2"
             disabled={anyEmpty}
