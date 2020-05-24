@@ -1,5 +1,7 @@
 import React, { useState, useMemo } from "react";
 
+import "./VocabularyAddEntry.scss";
+
 export default function VocabularyAddEntry(props) {
   const [word, setWord] = useState("");
   const [translation, setTranslation] = useState("");
@@ -21,7 +23,7 @@ export default function VocabularyAddEntry(props) {
     focusTextInput();
   };
   return (
-    <form onSubmit={_submit}>
+    <form onSubmit={_submit} className="add-entry mx-auto pb-4">
       <div className="input-group">
         <input
           type="text"

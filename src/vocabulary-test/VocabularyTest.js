@@ -29,7 +29,11 @@ export default function VocabularyTest() {
   const goBackButton = <a href="#/" className="btn btn-primary">go back</a>;
 
   if (isEmpty) {
-    return <div>is empty <GoBackButton /></div>;
+    return <div className="jumbotron">
+      <h1>Test is empty</h1>
+      <p className="lead">Go back and add some new words!</p>
+      <GoBackButton />
+    </div>;
 
   } else if (available.length) {
     return <div>
