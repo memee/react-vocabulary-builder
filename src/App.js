@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App container">
       <nav className="navbar navbar-light bg-light">
-        <a class="navbar-brand" href="#">
+        <a className="navbar-brand" href="#">
           <Logo /><span className="ml-2 font-weight-bold">VocaBuilder</span>
         </a>
       </nav>

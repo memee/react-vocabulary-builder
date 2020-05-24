@@ -24,25 +24,38 @@ export default function VocabularyList() {
   const entries = list
     .map(
       (entry, idx) => (
-        <li
-          className="list-group-item d-flex"
+        <tr
           key={entry.word + entry.translation}
         >
           <VocabularyEntry entry={entry}></VocabularyEntry>
-          <RemoveButton onClick={() => removeFromList(idx)}></RemoveButton>
-        </li>
+          <td><RemoveButton onClick={() => removeFromList(idx)}></RemoveButton></td>
+        </tr>
       )
       // relying on the order in the array, might be risky if one does reverse before mapping
       // but it's simple
     )
     .reverse();
+
+  const table = list.length > 0 ? <table className="table mt-3">
+    <thead>
+      <tr>
+        <th>Word</th>
+        <th>Translation</th>
+        <th>Remove?</th>
+      </tr>
+    </thead>
+    <tbody>
+      {entries}
+    </tbody>
+  </table> : <div></div>
+
   return (
     <div>
       <VocabularyAddEntry onAddEntry={addEntry}></VocabularyAddEntry>
       <button className="btn btn-primary" onClick={startTest}>
         Start a new test!
       </button>
-      <ul className="list-group">{entries}</ul>
+      {table}
     </div>
   );
 }

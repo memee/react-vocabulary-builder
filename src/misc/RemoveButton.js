@@ -22,7 +22,7 @@ const icon = (
 
 export default function RemoveButton(props) {
   return (
-    <button type="button" className="btn btn-danger" onClick={props.onClick}>
+    <button type="button" className="btn btn-outline-danger" onClick={props.onClick}>
       {icon}
     </button>
   );
