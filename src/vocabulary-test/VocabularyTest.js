@@ -6,6 +6,7 @@ import {
 } from "../persistence/persistence";
 
 import VocabularyTestAnswer from "./VocabularyTestAnswer";
+import VocabularyTestProgress from "./VocabularyTestProgress";
 
 export default function VocabularyTest() {
   const { id } = useParams();
@@ -21,13 +22,14 @@ export default function VocabularyTest() {
   const onSubmitAnswer = (theAnswer) => {
     answer(theAnswer);
   };
-  const goBackButton = <a href="#/" className="btn btn-primary">go back</a>
+  const goBackButton = <a href="#/" className="btn btn-primary">go back</a>;
 
   if (isEmpty) {
     return <div>is empty {goBackButton}</div>;
 
   } else if (available.length) {
     return <div>
+      <VocabularyTestProgress taken={taken} available={available} />
       <VocabularyTestAnswer entry={nextEntry} onSubmit={onSubmitAnswer} />
       {goBackButton}
     </div>;
