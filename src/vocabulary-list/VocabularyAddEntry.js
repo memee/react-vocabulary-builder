@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 
 export default function VocabularyAddEntry(props) {
   const [word, setWord] = useState("");
   const [translation, setTranslation] = useState("");
+
+  const anyEmpty = useMemo(() => {
+    console.log(word.length, translation.length);
+    return !(word.length && translation.length);
+  }, [word, translation]);
 
   const _submit = (evt) => {
     evt.preventDefault();
@@ -17,6 +22,8 @@ export default function VocabularyAddEntry(props) {
           className="form-control"
           placeholder="Word"
           required={true}
+          value={word}
+          name="word"
           onChange={(e) => setWord(e.target.value)}
         />
         <input
@@ -25,6 +32,8 @@ export default function VocabularyAddEntry(props) {
           className="form-control"
           placeholder="Translation"
           required={true}
+          value={translation}
+          name="translation"
           onChange={(e) => setTranslation(e.target.value)}
         />
         <div className="input-group-append">
@@ -32,6 +41,7 @@ export default function VocabularyAddEntry(props) {
             className="btn btn-outline-secondary"
             type="submit"
             id="buttond-addon2"
+            disabled={anyEmpty}
           >
             Add
           </button>
