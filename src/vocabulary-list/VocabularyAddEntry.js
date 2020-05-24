@@ -4,10 +4,9 @@ export default function VocabularyAddEntry(props) {
   const [word, setWord] = useState("");
   const [translation, setTranslation] = useState("");
 
-  const anyEmpty = useMemo(() => {
-    console.log(word.length, translation.length);
-    return !(word.length && translation.length);
-  }, [word, translation]);
+  const anyEmpty = useMemo(() =>
+     !(word.length && translation.length)
+  , [word, translation]);
 
   const _submit = (evt) => {
     evt.preventDefault();
