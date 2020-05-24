@@ -114,4 +114,41 @@ describe("useVocabularyTestStore", () => {
 
     expect(result.current.available.length).toEqual(2);
   });
+
+  it("should move answered entry to taken", () => {
+    const { result } = renderHook(() =>
+      useVocabularyTestStore("id124", [], 2, {
+        available: [
+          { word: "abc", translation: "ABC" },
+          { word: "def", translation: "DEF" },
+          { word: "xyz", translation: "XYZ" },
+        ],
+        taken: [],
+      })
+    );
+
+    act(() => {
+      // We answer for the first entry from the stack
+      result.current.answer("ABC");
+    });
+
+    expect(result.current.taken[0]).toEqual({
+      word: "abc",
+      translation: "ABC",
+      answer: "ABC",
+      hit: true,
+    });
+
+    act(() => {
+      result.current.answer("dfe");
+    });
+    console.log("taken", result.current.taken[1]);
+
+    expect(result.current.taken[1]).toEqual({
+      word: "def",
+      translation: "DEF",
+      answer: "dfe",
+      hit: false,
+    });
+  });
 });

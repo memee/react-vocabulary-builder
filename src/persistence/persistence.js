@@ -71,14 +71,30 @@ export const useVocabularyTestStore = (
     available: [],
   }
 ) => {
-  initial.available = takeRandomEntries(vocabulary, total);
+  initial.available =
+    initial.available.length > 0
+      ? initial.available
+      : takeRandomEntries(vocabulary, total);
 
   const [value, setValue] = useStateWithLocalStorage(
     "vocabulary-test-" + id,
     initial
   );
 
+  const answer = (theAnswer) => {
+    if (value.available.length === 0) return false;
+    const entry = value.available[0];
+    const hit = entry.translation === theAnswer;
+
+    const newAnswerEntry = { ...value.available[0], answer: theAnswer, hit };
+    setValue({
+      available: value.available.slice(1),
+      taken: [...value.taken, newAnswerEntry],
+    });
+    return true;
+  };
+
   const { available, taken } = value;
 
-  return { available, taken };
+  return { available, taken, answer };
 };
