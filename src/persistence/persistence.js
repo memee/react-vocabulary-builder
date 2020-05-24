@@ -49,3 +49,40 @@ export const useVocabularyStore = (initial = []) => {
 
   return { list: value, appendList, removeFromList };
 };
+
+
+const TEST_STATUS = Object.freeze({
+  OPEN: "OPEN",
+  CLOSED: "CLOSED"
+})
+
+takeRandomEntries = (entries, total) => {
+  const copy = [...entries];
+  const ready = [];
+
+  const take = (entries) => {
+    if (entries.length) {
+      const idx = Math.floor(Math.random() * entries.length);
+      ready.push(entries[idx]);
+      take(entries)
+    }
+  }
+
+  take(entries);
+
+}
+
+export const useVocabularyTestStore = (id, initial = {
+  status: TEST_STATUS.OPEN,
+  taken: [],
+  available: [],
+  total: 10
+}) => {
+  const { list, appendList, removeFromList } = useVocabularyStore();
+
+  initial.available = takeRandomEntries(list);
+
+  const [value, setValue] = useStateWithLocalStorage("vocabulary-test" + id, initial);
+
+  return { list: value }
+}
