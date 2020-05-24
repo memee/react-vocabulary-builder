@@ -8,5 +8,5 @@ export default function VocabularyEntry(props) {
       <li className="list-group-item">{word}</li>
       <li className="list-group-item">{translation}</li>
     </ul>
-  )
+  );
 }

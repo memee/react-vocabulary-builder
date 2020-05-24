@@ -9,5 +9,5 @@ export default function VocabularyTest() {
   const { id } = useParams();
   const { list } = useVocabularyStore();
   const { taken, available } = useVocabularyTestStore(id, list);
-  return <div>TEEST</div>;
+  return <div></div>;
 }
