@@ -47,3 +47,12 @@ describe("useVocabularyStore", () => {
     expect(result.current.list).toEqual(["a", "c"]);
   });
 });
+
+describe("useVocabularyTestStore", () => {
+  it("should initialize store with random entries", () => {
+    const model = {
+      available: [{ word: "x", translation: "y" }],
+      taken: [{ word: "x", translation: "y", answer: "z", hit: false }],
+    };
+  });
+});
