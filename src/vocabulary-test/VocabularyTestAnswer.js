@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./VocabularyTestAnswer.scss";
 
 export default function VocabularyTestAnswer(props) {
   const { word, translation } = props.entry;
@@ -12,11 +13,14 @@ export default function VocabularyTestAnswer(props) {
   };
 
   return (
-    <form className="form-group row" onSubmit={submit}>
-      <label htmlFor="answer" className="col-sm-2 col-form-label">
-        {word}
+    <form className="form-group row mt-3 test-answer mx-auto" onSubmit={submit}>
+      <label htmlFor="answer" className="col-sm-12 col-form-label">
+        The word:
       </label>
-      <div className="col-sm-10">
+      <div className="col-sm-12 mb-4">
+        <h1>{word}</h1>
+      </div>
+      <div className="col-sm-12">
         <div className="input-group mb-3">
           <input
             type="text"

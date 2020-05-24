@@ -37,6 +37,11 @@ export default function VocabularyTest() {
 
   } else if (available.length) {
     return <div>
+      <div className="card mb-3">
+        <div className="card-body">
+          <h3>Let's start the test!</h3>
+        </div>
+      </div>
       <VocabularyTestProgress taken={taken} available={available} />
       <VocabularyTestAnswer entry={nextEntry} onSubmit={onSubmitAnswer} />
       <GoBackButton />
