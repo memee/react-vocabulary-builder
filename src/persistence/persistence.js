@@ -94,7 +94,10 @@ export const useVocabularyTestStore = (
     return true;
   };
 
+  const nextEntry = value.available[0];
+  const isFinished = value.available.length === 0;
+
   const { available, taken } = value;
 
-  return { available, taken, answer };
+  return { available, taken, answer, isFinished, nextEntry };
 };
