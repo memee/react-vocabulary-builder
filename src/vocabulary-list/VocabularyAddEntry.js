@@ -4,6 +4,10 @@ export default function VocabularyAddEntry(props) {
   const [word, setWord] = useState("");
   const [translation, setTranslation] = useState("");
 
+  const textInput = React.createRef();
+
+  const focusTextInput = () => textInput.current.focus();
+
   const anyEmpty = useMemo(() => !(word.length && translation.length), [
     word,
     translation,
@@ -12,6 +16,9 @@ export default function VocabularyAddEntry(props) {
   const _submit = (evt) => {
     evt.preventDefault();
     props.onAddEntry(word, translation);
+    setWord("");
+    setTranslation("");
+    focusTextInput();
   };
   return (
     <form onSubmit={_submit}>
@@ -24,6 +31,7 @@ export default function VocabularyAddEntry(props) {
           required={true}
           value={word}
           name="word"
+          ref={textInput}
           onChange={(e) => setWord(e.target.value)}
         />
         <input
