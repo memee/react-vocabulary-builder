@@ -50,13 +50,8 @@ export const useVocabularyStore = (initial = []) => {
   return { list: value, appendList, removeFromList };
 };
 
-const TEST_STATUS = Object.freeze({
-  OPEN: "OPEN",
-  CLOSED: "CLOSED",
-});
-
 const takeRandomEntries = (entries, toBeTaken, ready = []) => {
-  if (toBeTaken == 0 || entries.length == 0) return ready;
+  if (toBeTaken === 0 || entries.length === 0) return ready;
 
   const idx = Math.floor(Math.random() * entries.length);
   const entry = entries[idx];
@@ -72,7 +67,6 @@ export const useVocabularyTestStore = (
   vocabulary = [],
   total = 10,
   initial = {
-    status: TEST_STATUS.OPEN,
     taken: [],
     available: [],
   }
@@ -80,7 +74,7 @@ export const useVocabularyTestStore = (
   initial.available = takeRandomEntries(vocabulary, total);
 
   const [value, setValue] = useStateWithLocalStorage(
-    "vocabulary-test" + id,
+    "vocabulary-test-" + id,
     initial
   );
 
