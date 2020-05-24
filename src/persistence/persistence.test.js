@@ -1,5 +1,9 @@
 import { renderHook, act } from "@testing-library/react-hooks";
-import { useStateWithLocalStorage, useVocabularyStore, useVocabularyTestStore } from "./persistence";
+import {
+  useStateWithLocalStorage,
+  useVocabularyStore,
+  useVocabularyTestStore,
+} from "./persistence";
 
 beforeEach(() => {
   global.localStorage.clear();
@@ -96,8 +100,18 @@ describe("useVocabularyTestStore", () => {
       taken: [{ word: "x", translation: "y", answer: "z", hit: false }],
     };
 
-    const { list } = renderHook(() =>
-      useVocabularyTestStore("id123")
+    const { result } = renderHook(() =>
+      useVocabularyTestStore(
+        "id123",
+        [
+          { word: "abc", translation: "ABC" },
+          { word: "def", translation: "DEF" },
+          { word: "xyz", translation: "XYZ" },
+        ],
+        2
+      )
     );
+
+    expect(result.current.available.length).toEqual(2);
   });
 });

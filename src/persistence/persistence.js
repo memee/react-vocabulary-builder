@@ -50,39 +50,41 @@ export const useVocabularyStore = (initial = []) => {
   return { list: value, appendList, removeFromList };
 };
 
-
 const TEST_STATUS = Object.freeze({
   OPEN: "OPEN",
-  CLOSED: "CLOSED"
-})
+  CLOSED: "CLOSED",
+});
 
-takeRandomEntries = (entries, total) => {
-  const copy = [...entries];
-  const ready = [];
+const takeRandomEntries = (entries, toBeTaken, ready = []) => {
+  if (toBeTaken == 0 || entries.length == 0) return ready;
 
-  const take = (entries) => {
-    if (entries.length) {
-      const idx = Math.floor(Math.random() * entries.length);
-      ready.push(entries[idx]);
-      take(entries)
-    }
+  const idx = Math.floor(Math.random() * entries.length);
+  const entry = entries[idx];
+  entries.splice(idx, 1);
+  ready.push(entry);
+  console.debug("taking", entries, ready, toBeTaken);
+
+  return takeRandomEntries(entries, toBeTaken - 1, ready);
+};
+
+export const useVocabularyTestStore = (
+  id,
+  vocabulary = [],
+  total = 10,
+  initial = {
+    status: TEST_STATUS.OPEN,
+    taken: [],
+    available: [],
   }
+) => {
+  initial.available = takeRandomEntries(vocabulary, total);
 
-  take(entries);
+  const [value, setValue] = useStateWithLocalStorage(
+    "vocabulary-test" + id,
+    initial
+  );
 
-}
+  const { available, taken } = value;
 
-export const useVocabularyTestStore = (id, initial = {
-  status: TEST_STATUS.OPEN,
-  taken: [],
-  available: [],
-  total: 10
-}) => {
-  const { list, appendList, removeFromList } = useVocabularyStore();
-
-  initial.available = takeRandomEntries(list);
-
-  const [value, setValue] = useStateWithLocalStorage("vocabulary-test" + id, initial);
-
-  return { list: value }
-}
+  return { available, taken };
+};
