@@ -1,0 +1,8 @@
+table.test-results {
+  tr.hit .score {
+    color: var(--success);
+  }
+  tr.miss .score {
+    color: var(--danger);
+  }
+}

@@ -7,6 +7,10 @@ import {
 
 import VocabularyTestAnswer from "./VocabularyTestAnswer";
 import VocabularyTestProgress from "./VocabularyTestProgress";
+import VocabularyTestResults from "./VocabularyTestResults"
+
+import goBackButton from "../misc/GoBackButton";
+import GoBackButton from "../misc/GoBackButton";
 
 export default function VocabularyTest() {
   const { id } = useParams();
@@ -25,17 +29,16 @@ export default function VocabularyTest() {
   const goBackButton = <a href="#/" className="btn btn-primary">go back</a>;
 
   if (isEmpty) {
-    return <div>is empty {goBackButton}</div>;
+    return <div>is empty <GoBackButton /></div>;
 
   } else if (available.length) {
     return <div>
       <VocabularyTestProgress taken={taken} available={available} />
       <VocabularyTestAnswer entry={nextEntry} onSubmit={onSubmitAnswer} />
-      {goBackButton}
+      <GoBackButton />
     </div>;
 
   } else {
-    return <div>Test Finished {goBackButton}</div>
-
+    return <VocabularyTestResults answers={taken} />;
   }
 }
