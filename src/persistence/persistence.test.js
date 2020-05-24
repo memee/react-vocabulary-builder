@@ -9,7 +9,7 @@ test("useStateWithLocalStorage shoud update localStorage", () => {
   const { result } = renderHook(() => useStateWithLocalStorage("key"));
   const [value, setValue] = result.current;
 
-  expect(value).toEqual([]);
+  expect(value).toEqual("");
   act(() => {
     setValue(["x"]);
   });
@@ -23,16 +23,25 @@ describe("useVocabularyStore", () => {
 
     expect(result.current.list).toEqual([]);
     act(() => {
-      result.current.appendList("y");
+      result.current.appendList({
+        word: "y",
+        translation: "DE_y",
+      });
     });
 
-    expect(result.current.list).toEqual(["y"]);
+    expect(result.current.list).toEqual([{ word: "y", translation: "DE_y" }]);
 
     act(() => {
-      result.current.appendList("z");
+      result.current.appendList({
+        word: "z",
+        translation: "DE_z",
+      });
     });
 
-    expect(result.current.list).toEqual(["y", "z"]);
+    expect(result.current.list).toEqual([
+      { word: "y", translation: "DE_y" },
+      { word: "z", translation: "DE_z" },
+    ]);
   });
 
   it("should remove from the result.current.list at index", () => {
@@ -45,6 +54,38 @@ describe("useVocabularyStore", () => {
     });
 
     expect(result.current.list).toEqual(["a", "c"]);
+  });
+
+  it("should not add duplicates", () => {
+    const { result } = renderHook(() =>
+      useVocabularyStore([
+        { word: "xyz", translation: "abc" },
+        { word: "car", translation: "Wagen, Der" },
+      ])
+    );
+
+    act(() => {
+      result.current.appendList({
+        word: "car",
+        translation: "Wagen, Der",
+      });
+    });
+
+    expect(result.current.list.length).toEqual(2);
+  });
+
+  it("should allow for readding removed entries", () => {
+    const { result } = renderHook(() =>
+      useVocabularyStore([{ word: "xyz", translation: "abc" }])
+    );
+
+    act(() => {
+      result.current.removeFromList(0);
+    });
+    act(() => {
+      result.current.appendList({ word: "xyz", translation: "abc" });
+    });
+    expect(result.current.list.length).toEqual(1);
   });
 });
 
