@@ -1,17 +1,17 @@
 import React from "react";
 
-export const useStateWithLocalStorage = (key, initial = []) => {
+export const useStateWithLocalStorage = (key, initial = "") => {
   const [value, setValue] = React.useState(
-    localStorage.getItem(key) || initial
+    JSON.parse(localStorage.getItem(key)) || initial
   );
 
   React.useEffect(() => {
-    localStorage.setItem(key, value);
+    localStorage.setItem(key, JSON.stringify(value));
   }, [key, value]);
   return [value, setValue];
 };
 
-export const useVocabularyStore = (initial) => {
+export const useVocabularyStore = (initial = []) => {
   const [value, setValue] = useStateWithLocalStorage(
     "vocabulary-list",
     initial
