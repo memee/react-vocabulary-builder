@@ -5,7 +5,10 @@ export const useStateWithLocalStorage = (key, initial = "") => {
     JSON.parse(localStorage.getItem(key)) || initial
   );
 
+  console.log("useState", key, value);
+
   React.useEffect(() => {
+    console.log('setting item', key, value);
     localStorage.setItem(key, JSON.stringify(value));
   }, [key, value]);
   return [value, setValue];
@@ -55,11 +58,11 @@ const takeRandomEntries = (entries, toBeTaken, ready = []) => {
 
   const idx = Math.floor(Math.random() * entries.length);
   const entry = entries[idx];
-  entries.splice(idx, 1);
+  const newEntries = [...entries.slice(0, idx), ...entries.slice(idx + 1)];
   ready.push(entry);
   console.debug("taking", entries, ready, toBeTaken);
 
-  return takeRandomEntries(entries, toBeTaken - 1, ready);
+  return takeRandomEntries(newEntries, toBeTaken - 1, ready);
 };
 
 export const useVocabularyTestStore = (
@@ -93,11 +96,11 @@ export const useVocabularyTestStore = (
     });
     return true;
   };
-
-  const nextEntry = value.available[0];
-  const isFinished = value.available.length === 0;
-
   const { available, taken } = value;
 
-  return { available, taken, answer, isFinished, nextEntry };
+  const nextEntry = available[0];
+  const isFinished = available.length === 0;
+  const isEmpty = available.length === 0 && taken.length === 0;
+
+  return { available, taken, answer, isFinished, nextEntry, isEmpty };
 };
