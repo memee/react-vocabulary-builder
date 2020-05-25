@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "127586cf15a37f39341284b4a889d132",
+    "revision": "65b67411aa9714321b6c2d799fca4cd0",
     "url": "/react-vocabulary-builder/index.html"
   },
   {
-    "revision": "2d99e9259f84d4290760",
-    "url": "/react-vocabulary-builder/static/css/main.8cde8510.chunk.css"
+    "revision": "2e02bcdec7e7ecc60042",
+    "url": "/react-vocabulary-builder/static/css/main.fe63a796.chunk.css"
   },
   {
     "revision": "882f9f43aaf83be5ea09",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-vocabulary-builder/static/js/2.45ecf990.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "2d99e9259f84d4290760",
-    "url": "/react-vocabulary-builder/static/js/main.f5514013.chunk.js"
+    "revision": "2e02bcdec7e7ecc60042",
+    "url": "/react-vocabulary-builder/static/js/main.57fd4021.chunk.js"
   },
   {
     "revision": "01a6617cb145c63e95a0",
