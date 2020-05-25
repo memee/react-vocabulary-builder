@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/react-vocabulary-builder/static/css/main.37f461d0.chunk.css",
-    "main.js": "/react-vocabulary-builder/static/js/main.22a98a2a.chunk.js",
-    "main.js.map": "/react-vocabulary-builder/static/js/main.22a98a2a.chunk.js.map",
+    "main.css": "/react-vocabulary-builder/static/css/main.8cde8510.chunk.css",
+    "main.js": "/react-vocabulary-builder/static/js/main.f5514013.chunk.js",
+    "main.js.map": "/react-vocabulary-builder/static/js/main.f5514013.chunk.js.map",
     "runtime-main.js": "/react-vocabulary-builder/static/js/runtime-main.8664957c.js",
     "runtime-main.js.map": "/react-vocabulary-builder/static/js/runtime-main.8664957c.js.map",
-    "static/js/2.645ce5db.chunk.js": "/react-vocabulary-builder/static/js/2.645ce5db.chunk.js",
-    "static/js/2.645ce5db.chunk.js.map": "/react-vocabulary-builder/static/js/2.645ce5db.chunk.js.map",
+    "static/js/2.45ecf990.chunk.js": "/react-vocabulary-builder/static/js/2.45ecf990.chunk.js",
+    "static/js/2.45ecf990.chunk.js.map": "/react-vocabulary-builder/static/js/2.45ecf990.chunk.js.map",
     "index.html": "/react-vocabulary-builder/index.html",
-    "precache-manifest.c95d1226ef97201cdb6b21309e6724d9.js": "/react-vocabulary-builder/precache-manifest.c95d1226ef97201cdb6b21309e6724d9.js",
+    "precache-manifest.b5670553cf388dd679f4977ffa114cc3.js": "/react-vocabulary-builder/precache-manifest.b5670553cf388dd679f4977ffa114cc3.js",
     "service-worker.js": "/react-vocabulary-builder/service-worker.js",
-    "static/css/main.37f461d0.chunk.css.map": "/react-vocabulary-builder/static/css/main.37f461d0.chunk.css.map",
-    "static/js/2.645ce5db.chunk.js.LICENSE.txt": "/react-vocabulary-builder/static/js/2.645ce5db.chunk.js.LICENSE.txt",
+    "static/css/main.8cde8510.chunk.css.map": "/react-vocabulary-builder/static/css/main.8cde8510.chunk.css.map",
+    "static/js/2.45ecf990.chunk.js.LICENSE.txt": "/react-vocabulary-builder/static/js/2.45ecf990.chunk.js.LICENSE.txt",
     "static/media/logo.14595c7b.svg": "/react-vocabulary-builder/static/media/logo.14595c7b.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.8664957c.js",
-    "static/js/2.645ce5db.chunk.js",
-    "static/css/main.37f461d0.chunk.css",
-    "static/js/main.22a98a2a.chunk.js"
+    "static/js/2.45ecf990.chunk.js",
+    "static/css/main.8cde8510.chunk.css",
+    "static/js/main.f5514013.chunk.js"
   ]
 }
