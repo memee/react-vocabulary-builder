@@ -14,7 +14,7 @@ export default function VocabularyTestResults(props) {
         <p className="lead">Find your results below!</p>
         <hr class="my-4" />
         <p>You can give another try if you want, just ... </p>
-        <GoBackButton />
+        <GoBackButton outlined={false} />
       </div>
       <table className="table test-results">
         <thead>

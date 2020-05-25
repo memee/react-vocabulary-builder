@@ -23,14 +23,13 @@ export default function VocabularyAddEntry(props) {
     focusTextInput();
   };
   return (
-    <form onSubmit={_submit} className="add-entry mx-auto pb-4">
+    <form onSubmit={_submit} className="add-entry mx-auto pb-3">
       <div className="input-group">
         <input
           type="text"
           aria-label="Word"
           className="form-control"
           placeholder="Word"
-          required={true}
           value={word}
           name="word"
           ref={textInput}
@@ -41,14 +40,13 @@ export default function VocabularyAddEntry(props) {
           aria-label="Translation"
           className="form-control"
           placeholder="Translation"
-          required={true}
           value={translation}
           name="translation"
           onChange={(e) => setTranslation(e.target.value)}
         />
         <div className="input-group-append">
           <button
-            className="btn btn-outline-primary"
+            className="btn btn-primary"
             type="submit"
             id="buttond-addon2"
             disabled={anyEmpty}

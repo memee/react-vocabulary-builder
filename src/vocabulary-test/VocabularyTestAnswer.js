@@ -32,7 +32,7 @@ export default function VocabularyTestAnswer(props) {
             onChange={(e) => setAnswer(e.target.value)}
           />
           <div className="input-group-append">
-            <button className="btn btn-outline-primary" type="submit">
+            <button className="btn btn-primary" type="submit">
               Submit
             </button>
           </div>

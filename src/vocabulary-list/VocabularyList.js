@@ -51,9 +51,13 @@ export default function VocabularyList() {
 
   return (
     <div>
+      <div className="mb-4">
+        <h5 className="">Build your language vocabulary</h5>
+        <p className="">Start adding words and their translations</p>
+      </div>
       <VocabularyAddEntry onAddEntry={addEntry}></VocabularyAddEntry>
-      <button className="btn btn-primary" onClick={startTest}>
-        Start a new test!
+      <button className="btn btn-outline-primary" onClick={startTest}>
+        Start new test!
       </button>
       {table}
     </div>
