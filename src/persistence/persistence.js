@@ -1,4 +1,5 @@
 import React from "react";
+import config from "../config.json";
 
 export const useStateWithLocalStorage = (key, initial = "") => {
   const [value, setValue] = React.useState(
@@ -68,7 +69,7 @@ const takeRandomEntries = (entries, toBeTaken, ready = []) => {
 export const useVocabularyTestStore = (
   id,
   vocabulary = [],
-  total = 10,
+  total = config.testWordsNumber,
   initial = {
     taken: [],
     available: [],
